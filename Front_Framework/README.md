@@ -1,0 +1,1 @@
+Para utilizar o "B" basta utlizar as suas funções CSS e JS que tem o link relacional no site e assim com o uso de class e uma boa olhada na DOC fazer as suas alterações desejadas 
