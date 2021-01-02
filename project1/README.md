@@ -43,5 +43,9 @@
 * Cria uma pasta e redireciona todos os arquivos estáticos de todos os apps para a mesma que se localiza no root/Projeto
 * A classificação dessa pasta e seu nome e feito nas configurações com a declaração lá informada
 
-#### Cria um dir Git na sua máquina local
-> git init
+### Heroku 
+
+* Para logar no Heroku e configurar o básico, basta seguir o Get Started no site após criar a conta, é tudo bem explicado.
+
+* Para criar um app heroku
+> heroku create nomeprojetodjango-iniciaisnome --buildpack heroku/python
