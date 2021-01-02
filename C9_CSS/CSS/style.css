@@ -1,0 +1,21 @@
+body{
+    background-color: purple;
+}
+
+p{
+    text-align: center;
+    color: brown;
+    text-decoration: underline;
+    font-weight: bold;
+    background-color: black;
+}
+
+.cl_meio{
+    text-align: right;
+    color: aqua;
+}
+
+#id_meio{
+    text-align: left;
+    color: white;
+}
