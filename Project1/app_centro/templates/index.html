@@ -1,0 +1,37 @@
+{%load static%} <!--Sempre deve ser colocado para indicar que a página precisa de arquivos estáticos -->
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <link href="{% static 'CSS/style.css'%}" rel="stylesheet">
+    </head>
+    <body>
+        <div>
+            <h1>Olá Meu Amigo</h1>
+            <img src="{% static 'Img/django.jpg'%}" alt="Logo do Django"/>
+            <h2>Itens Disponiveis</h2>
+            <table id="tb_itens">
+                <caption>Nome, código e preço dos Itens</caption>
+                <tr>
+                    <th>Itens</th>
+                    <th>Código</th>
+                    <th>Preço</th>
+                </tr>
+                    {%for i in itens%}
+                    <tr>
+                        <td><a href="{%url 'item' i.code_item%}">{{i.nome_item}}</a></td>
+                        <td>{{i.code_item}}</td>
+                        <td>{{i.preco_item}} R$</td>
+                    </tr>
+                    {%endfor%}
+                </table>
+            <br>
+            <a href="{%url 'about'%}">Sobre Nós</a> <br>
+            <button onclick="olab()">Saudação</button>
+            <p>{{ data }}</p>
+            <p>{{ data_time }}</p>
+        </div>
+        <script type="text/javascript" src="{% static 'JS/script.js'%}"></script>
+    </body>
+</html>

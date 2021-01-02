@@ -1,0 +1,24 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'CSS/style.css'%}">
+    </head>
+    <body>
+        <h1>Item escolhido</h1>
+        <table id="tb_itens">
+            <caption>Nome e preço dos itens</caption>
+            <tr>
+                <th>Item</th>
+                <th>Preço</th>
+            </tr>
+            <tr>
+                <td>{{itens.nome_item}}</td>
+                <td>{{itens.preco_item}} R$</td>
+            </tr>
+        </table>
+        <a href="{%url 'index'%}"><p>Tela Inicial</p></a>
+    </body>
+</html>
