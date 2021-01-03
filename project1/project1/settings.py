@@ -26,7 +26,7 @@ SECRET_KEY = 'hi^#tb3#$48xj+3ub-6fz(uf6ra93j3!hlw=!!n1d#my9!5^nb'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://mysterious-hamlet-66885.herokuapp.com/']
+ALLOWED_HOSTS = ['.herokuapp.com']
 
 
 # Application definition
