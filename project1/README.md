@@ -50,8 +50,8 @@
 * Para criar um app heroku
 > heroku create nomeprojetodjango-iniciaisnome --buildpack heroku/python
 
-* Para conectar ao Git da heroku
-> heroku git:remote -a nomeprojetodjango-iniciaisnome
-
-* Push no Git da heroku
-> git push heroku HEAD:master
+* Informações melhores e personalizadas para deploy, siga o passo a passo do Heroku
+* Agora com seu site na internet, todo push deve ser feito além do seu GitHub se for o seu caso também para o git do Heroku com o código
+> git add .
+> git commit -m "Message"
+> git push heroku master "or main"
