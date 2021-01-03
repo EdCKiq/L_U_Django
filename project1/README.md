@@ -49,3 +49,9 @@
 
 * Para criar um app heroku
 > heroku create nomeprojetodjango-iniciaisnome --buildpack heroku/python
+
+* Para conectar ao Git da heroku
+> heroku git:remote -a nomeprojetodjango-iniciaisnome
+
+* Push no Git da heroku
+> git push heroku HEAD:master
