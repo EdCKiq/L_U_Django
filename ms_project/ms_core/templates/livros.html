@@ -1,11 +1,23 @@
+{% load bootstrap4%} <!-- Carrega o bootstrap na pág-->
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
         <title>Livros | Produtos</title>
         <meta charset="UTF-8">
-        <link href="CSS/style.css" rel="stylesheet">
+        {% bootstrap_css %} <!--Carrega o CSS do B-->
     </head>
     <body>
-        <h1>Livros</h1>
+        <div class="container">
+            <h1>Livros</h1>
+            {% bootstrap_messages %} <!--Mostra menssagens da view-->
+            <form action="{% url 'livros'%}" method="POST" class="form" autocomplete="off">
+                {% csrf_token %} <!--Faz a validação do form submetido-->
+                {% bootstrap_form forms %} <!-- Renderiza o form que passamos no context como um bootstrap form-->
+                {% buttons %}
+                    <button type="submit" class="btn btn-primary">Submeter Livro</button>
+                {% endbuttons %}
+            </form>
+        </div>
     </body>
+    {% bootstrap_javascript jquery='full' %} <!--Carrega o JS e JQ do B-->
 </html>
