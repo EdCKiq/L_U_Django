@@ -9,11 +9,7 @@ def livros(request):
     forms = LivrosForm(request.POST or None)
     if str(request.method) == "POST":
         if forms.is_valid():
-            nome = forms.cleaned_data['nome']
-            edit_email = forms.cleaned_data['edit_email']
-            ano_publi = forms.cleaned_data['ano_publi']
-            coment = forms.cleaned_data['coment']
-            
+            forms.send_email()
             messages.success(request,"Enviado com Sucesso!!")
 
             forms = LivrosForm()

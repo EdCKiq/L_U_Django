@@ -130,3 +130,14 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # Sem servidor de email
+
+"""
+EMAIL_HOST = 'localhost'
+EMAIL_HOST_USER = 'no-reply@seudominio.com.br'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USER_PASSWORD = 'senhaemail'
+"""
+# Com servidor de email no hospedeiro
