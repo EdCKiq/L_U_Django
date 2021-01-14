@@ -5,7 +5,7 @@ from django.contrib import messages
 def index(request):
     return render(request, 'index.html')
 
-def livros(request):
+def pedidos_livros(request):
     forms = LivrosForm(request.POST or None)
     if str(request.method) == "POST":
         if forms.is_valid():
@@ -21,7 +21,10 @@ def livros(request):
     context = {
         "forms": forms
     }
-    return render(request, 'livros.html', context)
+    return render(request, 'pedidos_livros.html', context)
 
 def compradores(request):
     return render(request, 'compradores.html')
+
+def loja_livros(request):
+    return render(request, 'loja_livros.html')
