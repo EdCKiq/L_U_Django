@@ -5,7 +5,7 @@ class LivrosForm(forms.Form):
     nome = forms.CharField(label="Nome do livro")
     email = forms.EmailField(label="Seu E-mail")
     ano_publi = forms.IntegerField(label="Ano de Publicação")
-    coment = forms.CharField(label="O que achou do livro?", widget=forms.Textarea())
+    coment = forms.CharField(label="Porque deve ser adicionado?", widget=forms.Textarea())
 
     def send_email(self):
         nome = self.cleaned_data['nome']
@@ -13,7 +13,7 @@ class LivrosForm(forms.Form):
         ano_publi = self.cleaned_data['ano_publi']
         coment = self.cleaned_data['coment']
 
-        content = f'O livro {nome}!\nLançado em {ano_publi} foi adicionado\nSeu comentário sobre ele:\n{coment}.'
+        content = f'O livro {nome}!\nLançado em {ano_publi} foi enviado para analise\nPorque deve ser adicionado?:\n{coment}.\nLogo retornaremos com uma resposta'
 
         mail = EmailMessage(
             subject ="Livro Adicionado", # Assunto
