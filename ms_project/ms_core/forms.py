@@ -1,5 +1,6 @@
 from django import forms
 from django.core.mail.message import EmailMessage
+from .models import Livros
 
 class LivrosForm(forms.Form):
     nome = forms.CharField(label="Nome do livro")
@@ -23,3 +24,9 @@ class LivrosForm(forms.Form):
             headers = {'Reply to': email} # Para qual email será enviado a resposta
         )
         mail.send()
+
+
+class LivrosModelForm(forms.ModelForm):
+    class Meta:
+        model = Livros
+        fields = ['nome', 'preco', 'ano_publi', 'estoque', 'solicitado', 'imagem']

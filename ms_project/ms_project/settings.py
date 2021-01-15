@@ -130,6 +130,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+MEDIA_URL = 'media/'                            # Onde será guardado as imagens que vierem do form
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')    
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # Sem servidor de email
 
@@ -141,3 +143,4 @@ EMAIL_USE_TLS = True
 EMAIL_USER_PASSWORD = 'senhaemail'
 """
 # Com servidor de email no hospedeiro
+
