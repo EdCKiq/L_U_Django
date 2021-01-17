@@ -13,7 +13,7 @@ class Base(models.Model):
     modificacao = models.DateField("Data da modificação", auto_now=True)
     ativo = models.BooleanField("Ativo? ", default=True)
     class Meta():
-       abstract = True
+       abstract = True # Torna a Class abstrata, ou seja, vai servir de base para outras
 
 class Livros(Base):
     nome = models.CharField("Nome",max_length=20)

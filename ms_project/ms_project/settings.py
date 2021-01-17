@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 import os
 from pathlib import Path
 from . import my_secrets
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = my_secrets.key
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -46,7 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    #'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -79,7 +80,14 @@ WSGI_APPLICATION = 'ms_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+DATABASES = {
+    'default': dj_database_url.config()
+}
+
 #Configuração para conexão para um BD MySQL
+"""
+O heroku não tem suporte na versão grátis pelo menos, ao MySQl, então para por em 
+produção, iremos usar o PostgreSQL.
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -90,7 +98,7 @@ DATABASES = {
         'PORT': 3306,
     }
 }
-
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -133,7 +141,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = 'media/'                            # Onde será guardado as imagens que vierem do form
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')    
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # Sem servidor de email
+LOGOUT_REDIRECT_URL = "index"
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # Sem servidor de email
 
 """
 EMAIL_HOST = 'localhost'

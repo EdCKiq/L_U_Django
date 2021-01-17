@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .forms import LivrosForm, LivrosModelForm
 from django.contrib import messages
 from .models import Livros
+from django.shortcuts import redirect
 
 def index(request):
     context = {
@@ -29,19 +30,31 @@ def pedidos_livros(request):
 
 
 def loja_livros(request):
-    if str(request.method) == "POST":
-        form = LivrosModelForm(request.POST, request.FILES) #request.FILES porque agora temos imagem
-        if form.is_valid():
-            form.save() # Salva as informações do form para uso no BD
-            messages.success(request, "Enviado com sucesso")
-            form = LivrosModelForm()
+    if str(request.user) != 'AnonymousUser':
+        
+        if str(request.method) == "POST":
+            form = LivrosModelForm(request.POST, request.FILES) #request.FILES porque agora temos imagem
+            
+            if form.is_valid():
+                form.save() # Salva as informações do form para uso no BD
+                messages.success(request, "Enviado com sucesso")
+                form = LivrosModelForm()
+            
+            else:
+                messages.error(request, "Erro no envio")
+        
         else:
-            messages.error(request, "Erro no envio")
-    else:
-        form = LivrosModelForm()
+            form = LivrosModelForm()
     
-    context={
-        "form":form
-    }
+        context={
+            "form":form
+        }
 
-    return render(request, 'loja_livros.html', context)
+        return render(request, 'loja_livros.html', context)
+    
+    else:
+        return redirect('auth')
+
+
+def auth(request):
+    return render(request, 'auth.html')
