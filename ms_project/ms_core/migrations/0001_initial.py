@@ -21,7 +21,6 @@ class Migration(migrations.Migration):
                 ('ativo', models.BooleanField(default=True, verbose_name='Ativo? ')),
                 ('nome', models.CharField(max_length=20, verbose_name='Nome')),
                 ('preco', models.DecimalField(decimal_places=2, max_digits=8, verbose_name='Preço')),
-                ('ano_publi', models.DateField(verbose_name='Ano de publicação')),
                 ('estoque', models.IntegerField(max_length=15, verbose_name='Estoque')),
                 ('imagem', stdimage.models.StdImageField(upload_to='livros', verbose_name='Imagem')),
                 ('slug', models.SlugField(blank=True, editable=False, max_length=100, verbose_name='Slug')),

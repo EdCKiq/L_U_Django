@@ -4,4 +4,4 @@ from .models import Livros
 #Registrando no Admin com decorator
 @admin.register(Livros)
 class LivrosAdmin(admin.ModelAdmin):
-    list_display = ('nome', 'preco', 'ano_publi', 'estoque', 'slug')
+    list_display = ('nome', 'preco', 'estoque', 'slug')

@@ -1,6 +1,4 @@
 from django.db import models
-from django.db.models.fields import CharField, DateField, DecimalField
-from django.template.context import make_context
 from stdimage.models import StdImageField
 
 #Signals
@@ -18,7 +16,6 @@ class Base(models.Model):
 class Livros(Base):
     nome = models.CharField("Nome",max_length=20)
     preco = models.DecimalField("Preço",max_digits=8,decimal_places=2)
-    ano_publi = models.IntegerField("Ano de publicação")
     estoque = models.IntegerField("Estoque")
     solicitado = models.BooleanField("Solicitado?", default=False)
     imagem = StdImageField("Imagem", upload_to='livros', variations={'thumb': (124,124) })

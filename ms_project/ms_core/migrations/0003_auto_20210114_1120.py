@@ -15,9 +15,4 @@ class Migration(migrations.Migration):
             name='solicitado',
             field=models.BooleanField(default=False, verbose_name='Solicitado?'),
         ),
-        migrations.AlterField(
-            model_name='livros',
-            name='ano_publi',
-            field=models.IntegerField(verbose_name='Ano de publicação'),
-        ),
     ]
