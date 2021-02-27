@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import MutableSequence
 from . import my_secrets
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,6 +78,7 @@ WSGI_APPLICATION = 'fusion.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -86,6 +88,11 @@ DATABASES = {
         'HOST' : 'localhost',
         'PORT' : 5432,
     }
+}
+"""
+
+DATABASES = {
+    'default': dj_database_url.config()
 }
 
 
@@ -130,5 +137,7 @@ MEDIA_URL = 'media/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+LOGOUT_REDIRECT_URL = 'index'
+
 #Para teste no console
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
